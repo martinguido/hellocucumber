@@ -1,20 +1,20 @@
 const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 
-function isItFriday(today) {
-  if (today === "Friday") {
-    return "TGIF";
+function isItEven(aNumber) {
+  if (parseInt(aNumber)%2==0) {
+    return "Yes, it is!";
   } else {
-    return "Nope";
+    return "No, it is an odd number";
   }
 }
 
-Given('today is {string}', function (givenDay) {
-  this.today = givenDay;
+Given('The number is {string}', function (givenNumber) {
+  this.number = givenNumber;
 });
 
-When('I ask whether it\'s Friday yet', function () {
-  this.actualAnswer = isItFriday(this.today);
+When('I ask whether it\'s an even number', function () {
+  this.actualAnswer = isItEven(this.number);
 });
 
 Then('I should be told {string}', function (expectedAnswer) {
